@@ -1,0 +1,56 @@
+OS Module: 
+os.system(cmd)      -     To run arbitary shell commands. It supports pipes and redirections as well. The os.system() is considered outdated and not recommended for several reasons, including security vulnerabilities and limited functionality. Instead, it is advised to use the subprocess module, which provides more powerful and safer ways to execute shell commands.
+
+
+import os 
+import stat
+def get_filestat(file_path):
+    try:
+        file_stat = os.stat(file_path)
+        size = file_stat.st_size
+        mode = file_stat.st_mode
+        inode = file_stat.st_ino
+
+        # checking is directory
+        is_directory = stat.S_ISDIR(mode)
+
+        print(f"Is directory {is_directory}")
+        print(f"Size of {file_path} is {size}")
+        print(f"Mod of {file_path} is {mode}")
+        print(f"Inode of {file_path} is {inode}")
+        
+    except:
+        print("File not found")
+get_filestat(input("Enter path of file: "))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reference: 
+https://www.w3schools.com/python/module_os.asp
